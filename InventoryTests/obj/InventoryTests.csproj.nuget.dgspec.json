@@ -4,14 +4,14 @@
     "F:\\Work\\InventoryModule\\InventoryTests\\InventoryTests.csproj": {}
   },
   "projects": {
-    "F:\\Work\\InventoryModule\\InventoryTests\\InventoryTests.csproj": {
+    "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Work\\InventoryModule\\InventoryTests\\InventoryTests.csproj",
-        "projectName": "InventoryTests",
-        "projectPath": "F:\\Work\\InventoryModule\\InventoryTests\\InventoryTests.csproj",
+        "projectUniqueName": "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
+        "projectName": "InventoryModule",
+        "projectPath": "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "F:\\Work\\InventoryModule\\InventoryTests\\obj\\",
+        "outputPath": "F:\\Work\\InventoryModule\\InventoryModule\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +40,103 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\Work\\InventoryModule\\InventoryTests\\InventoryTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Work\\InventoryModule\\InventoryTests\\InventoryTests.csproj",
+        "projectName": "InventoryTests",
+        "projectPath": "F:\\Work\\InventoryModule\\InventoryTests\\InventoryTests.csproj",
+        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+        "outputPath": "F:\\Work\\InventoryModule\\InventoryTests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {
+                "projectPath": "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.6.0, )"
+            },
+            "MockQueryable.Moq": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Moq": {
               "target": "Package",

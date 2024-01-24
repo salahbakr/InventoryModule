@@ -135,3 +135,5 @@ F:\Work\InventoryModule\InventoryModule\obj\Debug\net8.0\refint\InventoryModule.
 F:\Work\InventoryModule\InventoryModule\obj\Debug\net8.0\InventoryModule.pdb
 F:\Work\InventoryModule\InventoryModule\obj\Debug\net8.0\InventoryModule.genruntimeconfig.cache
 F:\Work\InventoryModule\InventoryModule\obj\Debug\net8.0\ref\InventoryModule.dll
+F:\Work\InventoryModule\InventoryModule\bin\Debug\net8.0\AutoMapper.dll
+F:\Work\InventoryModule\InventoryModule\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
