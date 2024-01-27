@@ -19,7 +19,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(IShelfRepository), typeof(ShelfRepository));
 builder.Services.AddTransient(typeof(ICategoryService), typeof(CategoryService));
+builder.Services.AddTransient(typeof(IShelfService), typeof(ShelfService));
 
 var app = builder.Build();
 

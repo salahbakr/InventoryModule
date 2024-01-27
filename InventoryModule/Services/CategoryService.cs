@@ -7,16 +7,31 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InventoryModule.Services
 {
+    /// <summary>
+    /// Service class for managing categories.
+    /// </summary>
+
     public class CategoryService : ICategoryService
     {
         private readonly IGenericRepository<Category> _categoryRespository;
         private readonly IMapper _mapper;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CategoryService"/> class.
+        /// </summary>
+        /// <param name="categoryRepository">The repository for category operations.</param>
+        /// <param name="mapper">The AutoMapper instance for mapping entities to DTOs.</param>
 
         public CategoryService(IGenericRepository<Category> categoryRepository, IMapper mapper)
         {
             _categoryRespository = categoryRepository;
             _mapper = mapper;
         }
+
+        /// <summary>
+        /// Gets all categories asynchronously.
+        /// </summary>
+        /// <returns>A response model containing the list of categories.</returns>
 
         public async Task<ResponseModel<IEnumerable<CategoryResponseDto>>> GetAllAsync()
         {
@@ -36,6 +51,12 @@ namespace InventoryModule.Services
             return new ResponseModel<IEnumerable<CategoryResponseDto>> { Message = "Retrieved categories", Data = categoriesDto };
         }
 
+        /// <summary>
+        /// Gets a category by ID asynchronously.
+        /// </summary>
+        /// <param name="id">The ID of the category.</param>
+        /// <returns>A response model containing the retrieved category.</returns>
+
         public async Task<ResponseModel<CategoryResponseDto>> GetByIdAsync(int id)
         {
             var category = await _categoryRespository.GetByIdAsync(id);
@@ -52,6 +73,12 @@ namespace InventoryModule.Services
             };
         }
 
+        /// <summary>
+        /// Creates a new category asynchronously.
+        /// </summary>
+        /// <param name="categoryDto">The data transfer object for creating a category.</param>
+        /// <returns>A response model containing the created category.</returns>
+
         public async Task<ResponseModel<CategoryResponseDto>> CreateAsync(CreateCategoryDto categoryDto)
         {
             var category = _mapper.Map<Category>(categoryDto);
@@ -64,6 +91,13 @@ namespace InventoryModule.Services
                 Data = _mapper.Map<CategoryResponseDto>(category)
             };
         }
+
+        /// <summary>
+        /// Updates an existing category asynchronously.
+        /// </summary>
+        /// <param name="categoryDto">The data transfer object for updating a category.</param>
+        /// <param name="id">The ID of the category to update.</param>
+        /// <returns>A response model containing the updated category.</returns>
 
         public async Task<ResponseModel<CategoryResponseDto>> UpdateAsync(CreateCategoryDto categoryDto, int id)
         {
@@ -85,6 +119,12 @@ namespace InventoryModule.Services
             };
         }
 
+        /// <summary>
+        /// Deletes a category by ID asynchronously.
+        /// </summary>
+        /// <param name="id">The ID of the category to delete.</param>
+        /// <returns>A response model containing the deleted category.</returns>
+
         public async Task<ResponseModel<CategoryResponseDto>> DeleteAsync(int id)
         {
             var category = await _categoryRespository.GetByIdAsync(id);
@@ -102,6 +142,11 @@ namespace InventoryModule.Services
                 Data = _mapper.Map<CategoryResponseDto>(category)
             };
         }
+
+        /// <summary>
+        /// Handles the case when a category is not found.
+        /// </summary>
+        /// <returns>A response model indicating a category not found error.</returns>
 
         internal ResponseModel<CategoryResponseDto> NotFoundCategoryError()
         {

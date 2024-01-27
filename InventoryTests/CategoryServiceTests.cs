@@ -14,11 +14,19 @@ using System.Threading.Tasks;
 
 namespace InventoryTests
 {
+    /// <summary>
+    /// Unit tests for the <see cref="CategoryService"/> class.
+    /// </summary>
+
     public class CategoryServiceTests
     {
         private readonly ICategoryService _categoryService;
         private readonly Mock<IGenericRepository<Category>> _mockRepository;
         private readonly Mock<IMapper> _mockMapper;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CategoryServiceTests"/> class.
+        /// </summary>
 
         public CategoryServiceTests()
         {
@@ -26,6 +34,12 @@ namespace InventoryTests
             _mockRepository = new Mock<IGenericRepository<Category>>();
             _categoryService = new CategoryService(_mockRepository.Object, _mockMapper.Object);
         }
+
+        #region GetAllAsync Tests
+
+        /// <summary>
+        /// Tests the <see cref="CategoryService.GetAllAsync"/> method when categories are retrieved successfully.
+        /// </summary>
 
         [Fact]
         public async Task GetAllAsync_ReturnsCategoriesWithMessage()
@@ -57,6 +71,10 @@ namespace InventoryTests
             Assert.Equal("Category 2", result.Data.Last().Name);
         }
 
+        /// <summary>
+        /// Tests the <see cref="CategoryService.GetAllAsync"/> method when no categories exist.
+        /// </summary>
+
         [Fact]
         public async Task GetAllAsync_ReturnsNotFound_WhenNoCategoriesExist()
         {
@@ -76,6 +94,14 @@ namespace InventoryTests
             Assert.False(result.Success);
             Assert.NotNull(result.Error);
         }
+
+        #endregion
+
+        #region GetById Tests
+
+        /// <summary>
+        /// Tests the <see cref="CategoryService.GetByIdAsync"/> method when the category is not found.
+        /// </summary>
 
         [Fact]
         public async Task GetByIdAsync_ReturnsCategory_WhenCategoryNotFound()
@@ -97,12 +123,16 @@ namespace InventoryTests
             Assert.NotNull(result.Error);
         }
 
+        /// <summary>
+        /// Tests the <see cref="CategoryService.GetByIdAsync"/> method when the category is found.
+        /// </summary>
+
         [Fact]
         public async Task GetByIdAsync_ReturnsCategory_WhenCategoryFound()
         {
             // Arrange
             var categoryId = 1;
-            Category category = new Category { Id = categoryId, Name = "Category1"};
+            Category category = new Category { Id = categoryId, Name = "Category1" };
             CategoryResponseDto expectedCategoriesResponse = new CategoryResponseDto { Id = categoryId, Name = "Category1" };
 
             _mockRepository.Setup(repo => repo.GetByIdAsync(categoryId)).ReturnsAsync(category);
@@ -117,7 +147,13 @@ namespace InventoryTests
             Assert.Null(result.Error);
         }
 
-        #region
+        #endregion
+
+        #region CreateAsync Tests
+
+        /// <summary>
+        /// Tests the <see cref="CategoryService.CreateAsync"/> method when creating a new category.
+        /// </summary>
 
         [Fact]
         public async Task CreateAsync_ShouldAddNewCategory()
@@ -142,6 +178,12 @@ namespace InventoryTests
 
         #endregion
 
+        #region UpdateAsync Tests
+
+        /// <summary>
+        /// Tests the <see cref="CategoryService.UpdateAsync"/> method when updating a category that is not found.
+        /// </summary>
+
         [Fact]
         public async Task UpdateAsync_ReturnNotFound_WhenNoCategoryFound()
         {
@@ -163,6 +205,10 @@ namespace InventoryTests
             Assert.False(result.Success);
             Assert.NotNull(result.Error);
         }
+
+        /// <summary>
+        /// Tests the <see cref="CategoryService.UpdateAsync"/> method when updating a category that is found.
+        /// </summary>
 
         [Fact]
         public async Task UpdateAsync_UpdateCategory_WhenCategoryFound()
@@ -187,6 +233,13 @@ namespace InventoryTests
             Assert.Null(result.Error);
         }
 
+        #endregion
+
+        #region DeleteAsync Tests
+
+        /// <summary>
+        /// Tests the <see cref="CategoryService.DeleteAsync"/> method when deleting a category that is not found.
+        /// </summary>
 
         [Fact]
         public async Task DeleteAsync_ReturnNotFound_WhenNoCategoryFound()
@@ -210,6 +263,10 @@ namespace InventoryTests
             Assert.NotNull(result.Error);
         }
 
+        /// <summary>
+        /// Tests the <see cref="CategoryService.DeleteAsync"/> method when deleting a category that is found.
+        /// </summary>
+
         [Fact]
         public async Task DeleteAsync_ShouldDeleteCategory_WhenCategoryFound()
         {
@@ -231,5 +288,8 @@ namespace InventoryTests
             Assert.True(result.Success);
             Assert.Null(result.Error);
         }
+
+        #endregion
+
     }
 }

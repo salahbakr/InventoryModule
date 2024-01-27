@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {}
+    "F:\\TOT\\Inventory\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {}
   },
   "projects": {
-    "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {
+    "F:\\TOT\\Inventory\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
+        "projectUniqueName": "F:\\TOT\\Inventory\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
         "projectName": "InventoryModule",
-        "projectPath": "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "F:\\Work\\InventoryModule\\InventoryModule\\obj\\",
+        "projectPath": "F:\\TOT\\Inventory\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "F:\\TOT\\Inventory\\InventoryModule\\InventoryModule\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

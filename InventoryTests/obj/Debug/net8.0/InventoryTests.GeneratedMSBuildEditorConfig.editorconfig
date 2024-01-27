@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = InventoryTests
-build_property.ProjectDir = F:\Work\InventoryModule\InventoryTests\
+build_property.ProjectDir = F:\TOT\Inventory\InventoryModule\InventoryTests\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
