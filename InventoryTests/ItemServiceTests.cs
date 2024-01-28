@@ -137,7 +137,7 @@ namespace InventoryTests
             var item = new Item { Id = itemId, Name = "Medic 1", Description = " Description 1", Quantity = 15, DateEntered = DateTime.Now };
             var expectedItemsResponse = new ItemResponseDto { Id = itemId, Name = "Medic 1", Description = "Description 1", Quantity = 15, DateEntered = DateTime.Now };
 
-            _mockRepository.Setup(repo => repo.GetByIdAsync(itemId)).ReturnsAsync(item);
+            _mockRepository.Setup(repo => repo.GetItemByIdWithCategoryAndShelf(itemId)).ReturnsAsync(item);
             _mockMapper.Setup(mapper => mapper.Map<ItemResponseDto>(item)).Returns(expectedItemsResponse);
 
             // Act

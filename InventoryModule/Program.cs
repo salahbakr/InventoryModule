@@ -21,9 +21,11 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped(typeof(IShelfRepository), typeof(ShelfRepository));
 builder.Services.AddScoped(typeof(IItemRepository), typeof(ItemRepository));
+builder.Services.AddScoped(typeof(IRequestRepository), typeof(RequestRepository));
 builder.Services.AddTransient(typeof(ICategoryService), typeof(CategoryService));
 builder.Services.AddTransient(typeof(IShelfService), typeof(ShelfService));
 builder.Services.AddTransient(typeof(IItemService), typeof(ItemsService));
+builder.Services.AddTransient(typeof(IRequestService), typeof(RequestService));
 
 var app = builder.Build();
 

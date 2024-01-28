@@ -51,7 +51,7 @@ namespace InventoryModule.Services
 
         public async Task<ResponseModel<ItemResponseDto>> GetByIdAsync(int id)
         {
-            var item = await _itemRepository.GetByIdAsync(id);
+            var item = await _itemRepository.GetItemByIdWithCategoryAndShelf(id);
 
             if (item is null)
             {

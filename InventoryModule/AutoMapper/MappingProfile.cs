@@ -22,6 +22,15 @@ namespace InventoryModule.AutoMapper
             CreateMap<CreateItemDto, Item>();
 
             CreateMap<Item, ItemResponseDto>();
+
+            // Request mappings
+            CreateMap<CreateRequestDto, Request>();
+
+            CreateMap<Request, RequestResponseDto>();
+
+            CreateMap<CreateRequestItemsDto, RequestItem>();
+
+            CreateMap<RequestItem, RequestItemResponseDto>();
         }
     }
 }

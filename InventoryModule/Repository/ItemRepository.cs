@@ -18,5 +18,10 @@ namespace InventoryModule.Repository
         {
             return await _context.Items.Include(item => item.Category).Include(item => item.Shelf).ToListAsync();
         }
+
+        public async Task<Item> GetItemByIdWithCategoryAndShelf(int id)
+        {
+            return await _context.Items.Include(item => item.Category).Include(item => item.Shelf).FirstAsync(item => item.Id == id);
+        }
     }
 }
