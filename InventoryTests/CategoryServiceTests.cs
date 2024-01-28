@@ -255,7 +255,7 @@ namespace InventoryTests
             _mockMapper.Setup(mapper => mapper.Map<CategoryResponseDto>(category)).Returns(expectedCategoriesResponse);
 
             // Act
-            var result = await _categoryService.UpdateAsync(createCategoryDto, categoryId);
+            var result = await _categoryService.DeleteAsync(categoryId);
 
             // Assert
             Assert.Null(result.Data);
@@ -281,7 +281,7 @@ namespace InventoryTests
             _mockMapper.Setup(mapper => mapper.Map<CategoryResponseDto>(category)).Returns(expectedCategoriesResponse);
 
             // Act
-            var result = await _categoryService.UpdateAsync(createCategoryDto, categoryId);
+            var result = await _categoryService.DeleteAsync(categoryId);
 
             // Assert
             Assert.NotNull(result.Data);
