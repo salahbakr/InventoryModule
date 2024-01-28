@@ -17,6 +17,11 @@ namespace InventoryModule.AutoMapper
             CreateMap<CreateShelfDto, Shelf>();
 
             CreateMap<Shelf, ShelfResponseDto>();
+
+            // Item mappings
+            CreateMap<CreateItemDto, Item>();
+
+            CreateMap<Item, ItemResponseDto>();
         }
     }
 }

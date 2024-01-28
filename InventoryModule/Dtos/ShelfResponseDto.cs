@@ -1,4 +1,6 @@
-﻿namespace InventoryModule.Dtos
+﻿using InventoryModule.Entities;
+
+namespace InventoryModule.Dtos
 {
     public class ShelfResponseDto
     {
