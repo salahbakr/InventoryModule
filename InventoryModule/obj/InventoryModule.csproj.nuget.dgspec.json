@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {}
+    "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {}
   },
   "projects": {
-    "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {
+    "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
+        "projectUniqueName": "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
         "projectName": "InventoryModule",
-        "projectPath": "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
+        "projectPath": "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "F:\\Work\\InventoryModule\\InventoryModule\\obj\\",
+        "outputPath": "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryModule\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LZNwJ4I3HN15AUPxXCeXu2PONoMaZ7YaWtNDl2XjcWUOEYod2SEmKazQp92PwBoeEGBAhMppgyN6sTr3AKaNFg==",
+  "dgSpecHash": "APn9dEK3c0C3ebbHa0JhS/pU3O9L4SrNyVYjuh/t3CbiCfnE0caPx9xQPzUKHhPdFuD69TWEsd7nnx4L3KRBeA==",
   "success": true,
-  "projectFilePath": "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
+  "projectFilePath": "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
