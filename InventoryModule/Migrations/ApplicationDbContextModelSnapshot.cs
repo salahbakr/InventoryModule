@@ -64,6 +64,12 @@ namespace InventoryModule.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int>("OrderPoint")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderQuantity")
+                        .HasColumnType("int");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -77,6 +83,37 @@ namespace InventoryModule.Migrations
                     b.HasIndex("ShelfId");
 
                     b.ToTable("Items");
+                });
+
+            modelBuilder.Entity("InventoryModule.Entities.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("ArrivalDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SupplierName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemId");
+
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("InventoryModule.Entities.Request", b =>
@@ -168,6 +205,17 @@ namespace InventoryModule.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Shelf");
+                });
+
+            modelBuilder.Entity("InventoryModule.Entities.Order", b =>
+                {
+                    b.HasOne("InventoryModule.Entities.Item", "Item")
+                        .WithMany()
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Item");
                 });
 
             modelBuilder.Entity("InventoryModule.Entities.RequestItem", b =>

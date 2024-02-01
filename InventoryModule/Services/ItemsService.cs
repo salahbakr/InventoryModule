@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using InventoryModule.Dtos;
 using InventoryModule.Entities;
+using InventoryModule.Helpers;
 using InventoryModule.Interfaces;
 
 namespace InventoryModule.Services
@@ -183,6 +184,25 @@ namespace InventoryModule.Services
                 Message = "Successfully removed category",
                 Data = _mapper.Map<ItemResponseDto>(item)
             };
+        }
+
+        public IEnumerable<Item> ChangeItemsQuantities(IEnumerable<Item> items, List<CreateRequestItemsDto> requestedItems, string operation)
+        {
+            foreach (var item in items)
+            {
+                if (operation == MathOperation.Subtraction)
+                {
+                    item.Quantity = item.Quantity - requestedItems.Where(requestedItems => requestedItems.ItemId == item.Id)
+                                              .Select(requestedItem => requestedItem.Quantity).Single();
+                }
+                else
+                {
+                    item.Quantity = item.Quantity + requestedItems.Where(requestedItems => requestedItems.ItemId == item.Id)
+                                              .Select(requestedItem => requestedItem.Quantity).Single();
+                }
+            }
+
+            return items;
         }
 
         /// <summary>

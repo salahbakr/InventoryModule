@@ -20,5 +20,6 @@ namespace InventoryModule.Data
         public DbSet<Item> Items { get; set; }
         public DbSet<Request> Requests { get; set; }
         public DbSet<RequestItem> RequestItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryTests\\InventoryTests.csproj": {}
+    "F:\\Work\\InventoryModule\\InventoryTests\\InventoryTests.csproj": {}
   },
   "projects": {
-    "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {
+    "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
+        "projectUniqueName": "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
         "projectName": "InventoryModule",
-        "projectPath": "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
+        "projectPath": "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryModule\\obj\\",
+        "outputPath": "F:\\Work\\InventoryModule\\InventoryModule\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -86,14 +86,14 @@
         }
       }
     },
-    "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryTests\\InventoryTests.csproj": {
+    "F:\\Work\\InventoryModule\\InventoryTests\\InventoryTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryTests\\InventoryTests.csproj",
+        "projectUniqueName": "F:\\Work\\InventoryModule\\InventoryTests\\InventoryTests.csproj",
         "projectName": "InventoryTests",
-        "projectPath": "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryTests\\InventoryTests.csproj",
+        "projectPath": "F:\\Work\\InventoryModule\\InventoryTests\\InventoryTests.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryTests\\obj\\",
+        "outputPath": "F:\\Work\\InventoryModule\\InventoryTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -110,8 +110,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {
-                "projectPath": "F:\\Work\\Inventoryv2\\InventoryModule\\InventoryModule\\InventoryModule.csproj"
+              "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj": {
+                "projectPath": "F:\\Work\\InventoryModule\\InventoryModule\\InventoryModule.csproj"
               }
             }
           }
