@@ -23,7 +23,7 @@ namespace InventoryModule.ExtensionMethod
             services.AddTransient(typeof(IRequestService), typeof(RequestService));
             services.AddTransient(typeof(IOrderService), typeof(OrderService));
 
-            //services.AddExceptionHandler<GlobalExceptionHandling>();
+            services.AddExceptionHandler<GlobalExceptionHandling>();
 
             return services;
         }

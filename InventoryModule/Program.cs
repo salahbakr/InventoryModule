@@ -1,5 +1,6 @@
 using InventoryModule.AutoMapper;
 using InventoryModule.Data;
+using InventoryModule.ExtensionMethod;
 using InventoryModule.Interfaces;
 using InventoryModule.Repository;
 using InventoryModule.Services;
@@ -17,15 +18,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddAutoMapper(typeof(MappingProfile));
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddScoped(typeof(IShelfRepository), typeof(ShelfRepository));
-builder.Services.AddScoped(typeof(IItemRepository), typeof(ItemRepository));
-builder.Services.AddScoped(typeof(IRequestRepository), typeof(RequestRepository));
-builder.Services.AddTransient(typeof(ICategoryService), typeof(CategoryService));
-builder.Services.AddTransient(typeof(IShelfService), typeof(ShelfService));
-builder.Services.AddTransient(typeof(IItemService), typeof(ItemsService));
-builder.Services.AddTransient(typeof(IRequestService), typeof(RequestService));
+builder.Services.AddRegisteredServices();
 
 var app = builder.Build();
 
@@ -35,6 +28,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseExceptionHandler(_ => { });
 
 app.UseHttpsRedirection();
 
