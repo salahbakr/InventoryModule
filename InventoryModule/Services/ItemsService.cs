@@ -186,6 +186,14 @@ namespace InventoryModule.Services
             };
         }
 
+        /// <summary>
+        /// Changes items quantities depending on the operation whether it is subtraction or addition.
+        /// </summary>
+        /// <param name="items">List of items to operate on</param>
+        /// <param name="requestedItems">List of the requested items with the quantity to subtract or add</param>
+        /// <param name="operation">Math operation to determine if it is subtraction or addition</param>
+        /// <returns> Items with the new quantities </returns>
+
         public IEnumerable<Item> ChangeItemsQuantities(IEnumerable<Item> items, List<CreateRequestItemsDto> requestedItems, string operation)
         {
             foreach (var item in items)

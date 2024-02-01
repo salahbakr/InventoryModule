@@ -6,5 +6,6 @@ namespace InventoryModule.Interfaces
     {
         Task<IEnumerable<Item>> GetAllItemsWithCategoryAndShelf();
         Task<Item> GetItemByIdWithCategoryAndShelf(int id);
+        Task<IEnumerable<Item>> GetItemsByIds(List<int> ids);
     }
 }

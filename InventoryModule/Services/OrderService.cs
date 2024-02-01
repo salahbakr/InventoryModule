@@ -16,6 +16,11 @@ namespace InventoryModule.Services
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// A method to get list of orders
+        /// </summary>
+        /// <returns>A response model containing list of orders</returns>
+
         public async Task<ResponseModel<IEnumerable<OrderResponseDto>>> GetAllOrdersAsync()
         {
             var orders = await _orderRepository.GetAllAsync();
@@ -35,6 +40,12 @@ namespace InventoryModule.Services
                 Data = _mapper.Map<IEnumerable<OrderResponseDto>>(orders)
             };
         }
+
+        /// <summary>
+        /// A method to make an automatic order if the item quantitiy falls below order point
+        /// </summary>
+        /// <param name="items"></param>
+        /// <returns>does not return anything</returns>
 
         public async Task CreateOrdersAsync(IEnumerable<Item> items)
         {

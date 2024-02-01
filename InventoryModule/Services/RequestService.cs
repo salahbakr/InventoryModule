@@ -2,6 +2,7 @@
 using InventoryModule.Dtos;
 using InventoryModule.Entities;
 using InventoryModule.Enums;
+using InventoryModule.Helpers;
 using InventoryModule.Interfaces;
 
 namespace InventoryModule.Services
@@ -15,6 +16,8 @@ namespace InventoryModule.Services
         private readonly IRequestRepository _requestRepository;
         private readonly IItemRepository _itemRepository;
         private readonly IMapper _mapper;
+        private readonly IItemService _itemService;
+        private readonly IOrderService _orderService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RequestService"/> class.
@@ -23,10 +26,12 @@ namespace InventoryModule.Services
         /// <param name="itemRepository">The repository for item operations.</param>
         /// <param name="mapper">The AutoMapper instance for mapping entities to DTOs.</param>
 
-        public RequestService(IRequestRepository requestRepository, IItemRepository itemRepository, IMapper mapper)
+        public RequestService(IRequestRepository requestRepository, IItemRepository itemRepository, IMapper mapper, IItemService itemService, IOrderService orderService)
         {
             _itemRepository = itemRepository;
             _mapper = mapper;
+            _itemService = itemService;
+            _orderService = orderService;
             _requestRepository = requestRepository;
         }
 
@@ -86,44 +91,19 @@ namespace InventoryModule.Services
         {
             var request = _mapper.Map<Request>(requestDto);
 
-            List<RequestItem> requestedItems = new List<RequestItem>();
+            var itemsIds = requestDto.RequestItems.Select(requestedItems => requestedItems.ItemId).ToList();
+            var items = await _itemRepository.GetItemsByIds(itemsIds);
+            items = _itemService.ChangeItemsQuantities(items, (List<CreateRequestItemsDto>)requestDto.RequestItems, MathOperation.Subtraction);
 
-            foreach (var itemRequestedDto in requestDto.RequestItems)
+            List<RequestItem> requestedItems = items.Select(item => new RequestItem
             {
-                var item = await _itemRepository.GetByIdAsync(itemRequestedDto.ItemId);
-
-                if (item is null)
-                {
-                    return new ResponseModel<RequestResponseDto>
-                    {
-                        Error = "Error while retrieving item",
-                        Message = "cAn not find item with id " + itemRequestedDto.ItemId
-                    };
-                }
-
-                item.Quantity = item.Quantity - itemRequestedDto.Quantity;
-
-                if (item.Quantity < 0)
-                {
-                    return new ResponseModel<RequestResponseDto>
-                    {
-                        Error = "Error while creating a request",
-                        Message = "Insufficient amount of item " + item.Name
-                    };
-                }
-
-
-                //var requestedItem = _mapper.Map<RequestItem>(itemRequestedDto);
-                requestedItems.Add(
-                    new RequestItem
-                    {
-                        Quantity = itemRequestedDto.Quantity,
-                        Item = item,
-                        Request = request
-                    });
-            }
+                Quantity = requestDto.RequestItems.Where(requestedItem => requestedItem.ItemId == item.Id).Select(requestedItems => requestedItems.Quantity).Single(),
+                Item = item
+            }).ToList();
 
             request.RequestItems = requestedItems;
+
+            await _orderService.CreateOrdersAsync(items);
 
             await _requestRepository.CreateAsync(request);
 
